@@ -1,0 +1,7 @@
+{
+  "m.homeserver": {"base_url": "https://matrix.hckrs.eu"},
+  "org.matrix.msc2965.authentication": {
+    "issuer": "https://matrix-mas.hckrs.eu/",
+    "account": "https://matrix-mas.hckrs.eu/account"
+  }
+}
