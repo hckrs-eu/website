@@ -1,7 +1,86 @@
-body { 
+@font-face {
+    font-family: Algol;
+    src: url("/assets/fonts/Algol.ttf");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Daydream;
+    src: url("/assets/fonts/Daydream.ttf");
+    font-display: swap;
+}
+
+h1,h2,h3 {
+    font-family: Daydream, sans-serif;
+    margin-top: clamp(1.5em, 6vw, 2.5em);
+    overflow-wrap: anywhere;
+}
+
+h1 { font-size: clamp(1.4rem, 6vw, 2.5rem); }
+h3 { font-size: clamp(1rem, 4vw, 1.5rem); }
+
+body {
     margin: 0;
-    background-image: url('/prootogens.png');
-    background-color: rgba(255, 255, 255, 0.6);
-    background-blend-mode: lighten;
-    color: white;
+    background-color: #111;
+    background-image: url('/assets/img/bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    color: #eee;
+    font-family: Algol, sans-serif;
+}
+
+.container {
+    box-sizing: border-box;
+    max-width: 40rem;
+    margin: 0 auto;
+    padding: 0 1rem 2rem;
+    text-align: center;
+}
+
+p,a {
+    font-size: clamp(1rem, 3.5vw, 1.5rem);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.badge {
+    width: 300px;
+}
+
+.pfp {
+    display: block;
+    margin: 1.5em auto 0;
+}
+
+.page-title {
+    margin-top: 0.4em;
+}
+
+.socials p {
+    margin: 0.3em 0;
+}
+
+.members {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1.5rem;
+}
+
+@media (max-width: 600px) {
+    body { background-attachment: scroll; }
+}
+
+a {
+    color: #FF46A2;
+}
+
+.back {
+    display: inline-block;
+    margin-top: 2em;
 }
