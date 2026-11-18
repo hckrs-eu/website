@@ -76,8 +76,8 @@ img {
     body { background-attachment: scroll; }
 }
 
-a {
-    color: #FF46A2;
+a,h1 {
+    color: #ff5171;
 }
 
 .back {
