@@ -66,8 +66,10 @@ img {
     margin: 0.3em 0;
 }
 
-.members {
-    width: 100%;
+.socials {
+    width: max-content;
+    margin-left: auto;
+    margin-right: auto;
     text-align: left;
 }
 
@@ -77,6 +79,7 @@ img {
     flex-direction: row;
     gap: 0.5em;
 }
+
 
 @media (max-width: 600px) {
     body { background-attachment: scroll; }
