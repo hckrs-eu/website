@@ -1,0 +1,13 @@
+services:
+  app:
+    build: .
+    container_name: hckrs-web
+    ports:
+      - "8000:80"
+    volumes:
+      - ./:/var/www/html
+    environment:
+      - ARI_KEY
+      - NOI_KEY
+      - ARI_DESCRIPTION
+      - NOI_DESCRIPTION

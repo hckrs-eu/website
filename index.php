@@ -1,3 +1,13 @@
+<?php
+$ari_key = $_ENV["ARI_KEY"];
+$ari_description = $_ENV["ARI_DESCRIPTION"];
+$ari_shown = isset($_GET["ari"]) && $_GET["ari"] == $ari_key;
+
+$noi_key = $_ENV["NOI_KEY"];
+$noi_description = $_ENV["NOI_DESCRIPTION"];
+$noi_shown = isset($_GET["noi"]) && $_GET["noi"] == $noi_key;
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -15,23 +25,41 @@
       <p>we are a cute lil couple that likes to goof around and play ctfs together. we're both players
         for our countries at <a href="https://ecsc.eu" target="_blank">ECSC</a>, which is also where we met.</p>
 
-      <h3>noi</h3>
-      <p>a slovak larper protogen thing. linux sysadmin alongside being a student. regarding ctfs,
-        my primary category is web. i enjoy setting up systems in a declarative manner (sometimes).
-        i use primarily ansible and kubernetes for that. i also code sometimes, my fav language is go,
-        but i also use python, js/ts, php (yes, i love php) and i want to learn rust or zig.</p>
-      <div class="member-link">
-        <a href="/~noi">here you can learn about me more:
-          <img src="/assets/img/buttons/noi.png"/>
-        </a>
-      </div>
-
       <h3>ari</h3>
-      <p>i'm a very smart and beautiful irish kitty girl. my primary ctf categories are forensics and misc.
-        i also enjoy music, programming and photographing. i like being a brat and disobeying ~w~</p>
+      <p>
+        <?php 
+        if($ari_shown) {
+          echo $ari_description;
+        } else {?>
+
+        i'm a very smart and beautiful irish kitty girl. my primary ctf categories are forensics and misc.
+        i also enjoy music, programming and photographing.
+
+        <?php } ?>
+      </p>
       <div class="member-link">
         <a href="https://ahree.xyz">here you can learn about me more:
           <img src="/assets/img/buttons/ari.png"/>
+        </a>
+      </div>
+
+      <h3>noi</h3>
+      <p>
+        <?php 
+        if($noi_shown) {
+          echo $noi_description;
+        } else {?>
+
+        a slovak larper protogen thing. linux sysadmin alongside being a student. regarding ctfs,
+        my primary category is web. i enjoy setting up systems in a declarative manner (sometimes).
+        i use primarily ansible and kubernetes for that. i also code sometimes, my fav language is go,
+        but i also use python, js/ts, php (yes, i love php) and i want to learn rust or zig.
+
+        <?php } ?>
+      </p>
+      <div class="member-link">
+        <a href="/~noi">here you can learn about me more:
+          <img src="/assets/img/buttons/noi.png"/>
         </a>
       </div>
 
@@ -40,7 +68,6 @@
         <b>email:</b> contact [at] this domain<br/>
         <b>ctftime:</b> <a href="https://ctftime.org/team/457186" target="_blank">hckrs</a>
       </p>
-
 
       <h3>we also report malicious ips for fun</h3>
       <a href="https://www.abuseipdb.com/user/369183" title="AbuseIPDB is an IP address blacklist for webmasters and sysadmins to report IP addresses engaging in abusive behavior on their networks">
