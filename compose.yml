@@ -1,0 +1,13 @@
+services:
+  app:
+    build: .
+    container_name: hckrs-web
+    ports:
+      - "8000:80"
+    volumes:
+      - ./:/var/www/html
+    environment:
+      - ARI_CIPHERTEXT
+      - ARI_PARAM
+      - NOI_CIPHERTEXT
+      - NOI_PARAM
