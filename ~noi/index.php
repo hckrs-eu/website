@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>noi - hckrs.eu</title>
-        <link rel="stylesheet" href="/style.css">
+        <link rel="stylesheet" href="/assets/css/style.css">
     </head>
     <body>
         <div class="container">
@@ -27,5 +27,7 @@
 
             <a href=".." class="back">go back</a>
         </div>
+
+        <?php include_once $_SERVER["DOCUMENT_ROOT"] . '/assets/includes/owa.php'; ?>
     </body>
 </html>

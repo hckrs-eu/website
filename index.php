@@ -92,5 +92,6 @@ if ($diff->d > 0) {
     </div>
 
     <?= $ari_shown || $noi_shown ? '<script src="assets/js/a7a67479d6bb32.js"></script>' : '' ?>
+    <?php include_once $_SERVER["DOCUMENT_ROOT"] . '/assets/includes/owa.php'; ?>
   </body>
 </html>
