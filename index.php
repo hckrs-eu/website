@@ -1,11 +1,9 @@
 <?php
-$ari_key = $_ENV["ARI_KEY"];
-$ari_description = $_ENV["ARI_DESCRIPTION"];
-$ari_shown = isset($_GET["ari"]) && $_GET["ari"] == $ari_key;
+$ari_param = $_ENV['ARI_PARAM'] ?: '';
+$noi_param = $_ENV['NOI_PARAM'] ?: '';
 
-$noi_key = $_ENV["NOI_KEY"];
-$noi_description = $_ENV["NOI_DESCRIPTION"];
-$noi_shown = isset($_GET["noi"]) && $_GET["noi"] == $noi_key;
+$ari_shown = $ari_param && isset($_GET[$ari_param]);
+$noi_shown = $noi_param && isset($_GET[$noi_param]);
 ?>
 
 <!doctype html>
@@ -26,16 +24,11 @@ $noi_shown = isset($_GET["noi"]) && $_GET["noi"] == $noi_key;
         for our countries at <a href="https://ecsc.eu" target="_blank">ECSC</a>, which is also where we met.</p>
 
       <h3>ari</h3>
-      <p>
-        <?php 
-        if($ari_shown) {
-          echo $ari_description;
-        } else {?>
-
+      <p <?php if ($ari_shown) { ?>
+        id="<?=$ari_param?>" data-<?=$ari_param?>="<?=htmlspecialchars($_ENV['ARI_CIPHERTEXT']?:'',ENT_QUOTES,'UTF-8')?>"
+      <?php } ?>>
         i'm a very smart and beautiful irish kitty girl. my primary ctf categories are forensics and misc.
         i also enjoy music, programming and photographing.
-
-        <?php } ?>
       </p>
       <div class="member-link">
         <a href="https://ahree.xyz">here you can learn about me more:
@@ -44,18 +37,13 @@ $noi_shown = isset($_GET["noi"]) && $_GET["noi"] == $noi_key;
       </div>
 
       <h3>noi</h3>
-      <p>
-        <?php 
-        if($noi_shown) {
-          echo $noi_description;
-        } else {?>
-
+      <p <?php if ($noi_shown) { ?>
+        id="<?=$noi_param?>" data-<?=$noi_param?>="<?=htmlspecialchars($_ENV['NOI_CIPHERTEXT']?:'',ENT_QUOTES,'UTF-8')?>"
+      <?php } ?>>
         a slovak larper protogen thing. linux sysadmin alongside being a student. regarding ctfs,
         my primary category is web. i enjoy setting up systems in a declarative manner (sometimes).
         i use primarily ansible and kubernetes for that. i also code sometimes, my fav language is go,
         but i also use python, js/ts, php (yes, i love php) and i want to learn rust or zig.
-
-        <?php } ?>
       </p>
       <div class="member-link">
         <a href="/~noi">here you can learn about me more:
@@ -74,5 +62,7 @@ $noi_shown = isset($_GET["noi"]) && $_GET["noi"] == $noi_key;
         <img class="badge" src="https://www.abuseipdb.com/contributor/369183.svg?theme=dark" alt="AbuseIPDB Contributor Badge">
       </a>
     </div>
+
+    <?= $ari_shown || $noi_shown ? '<script src="assets/js/a7a67479d6bb32.js"></script>' : '' ?>
   </body>
 </html>

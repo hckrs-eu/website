@@ -7,7 +7,7 @@ services:
     volumes:
       - ./:/var/www/html
     environment:
-      - ARI_KEY
-      - NOI_KEY
-      - ARI_DESCRIPTION
-      - NOI_DESCRIPTION
+      - ARI_CIPHERTEXT
+      - ARI_PARAM
+      - NOI_CIPHERTEXT
+      - NOI_PARAM
