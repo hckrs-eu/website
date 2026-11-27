@@ -93,3 +93,12 @@ a,h1 {
     display: inline-block;
     margin-top: 2em;
 }
+
+.counter {
+    margin-top: 0;
+    color: #ff5171;
+}
+
+.counter-tagline {
+    margin-top: 0;
+}

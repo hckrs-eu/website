@@ -4,6 +4,30 @@ $noi_param = $_ENV['NOI_PARAM'] ?: '';
 
 $ari_shown = $ari_param && isset($_GET[$ari_param]);
 $noi_shown = $noi_param && isset($_GET[$noi_param]);
+
+$since = new DateTime("2026-10-23");
+$now = new DateTime("now");
+$diff = $since->diff($now);
+
+$counter = "";
+
+if ($diff->y > 0) {
+  $counter .= strval($diff->y);
+  if ($diff->y == 1) $counter .= " year";
+  else $counter .= " years";
+}
+if ($diff->m > 0) {
+  if ($counter) $counter .= ", ";
+  $counter .= strval($diff->m);
+  if ($diff->m == 1) $counter .= " month";
+  else $counter .= " months";
+}
+if ($diff->d > 0) {
+  if ($counter) $counter .= " and ";
+  $counter .= strval($diff->d);
+  if ($diff->d == 1) $counter .= " day";
+  else $counter .= " days";
+}
 ?>
 
 <!doctype html>
@@ -50,6 +74,10 @@ $noi_shown = $noi_param && isset($_GET[$noi_param]);
           <img src="/assets/img/buttons/noi.png"/>
         </a>
       </div>
+
+      <h3>it's been</h3>
+      <h2 class="counter"><?=$counter?></h2>
+      <h3 class="counter-tagline">already!</h3>
 
       <h2>socials</h2>
       <p class="socials">
